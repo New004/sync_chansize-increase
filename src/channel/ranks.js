@@ -40,7 +40,7 @@ RankModule.prototype.sendChannelRanks = function (users) {
         }
 
         users.forEach(function (u) {
-            if (u.account.effectiveRank >= 7) {
+            if (u.account.effectiveRank >= 5) {
                 u.socket.emit("channelRanks", ranks);
             }
         });
@@ -65,7 +65,7 @@ RankModule.prototype.handleCmdRank = function (user, msg, _meta) {
 };
 
 RankModule.prototype.handleRankChange = function (user, data) {
-    if (user.account.effectiveRank < 3) {
+    if (user.account.effectiveRank < 5) {
         return;
     }
 
